@@ -1,9 +1,9 @@
-YashGemJewelleries.NTier/obj
-YashGemJewelleries.NTier/bin
+TrainManagement/obj
+TrainManagement/bin
 DataAccessLayer/obj
 DataAccessLayer/bin
-BusinessLogicLayer/obj
-BusinessLogicLayer/bin
-CommonDataLayer/obj
-CommonDataLayer/bin
+BusinessLayer/obj
+BusinessLayer/bin
+Common/obj
+Common/bin
 .vs
