@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Common.DTO;
+using Dapper;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,15 @@ namespace DataAccessLayer.BaseDL
     {
         public int DeleteMutiRecords(List<Guid> ids)
         {
-            //Chuan bi tham so Proc
             string className = typeof(T).Name;
             string stored = $"Proc_{className}_DeleteMultiple";
 
-            //chuan bi tham so 
             var parameter = new DynamicParameters();
 
             string whereClause = $"'{string.Join("', '", ids)}'";
 
             parameter.Add("$IDs", whereClause);
 
-            //thuc hien proc voi tham so o tren
             using (var mySqlConnection = new MySqlConnection(DatabaseContext.ConnectionString))
             {
                 int a = mySqlConnection.Execute(stored, parameter, commandType: System.Data.CommandType.StoredProcedure);
