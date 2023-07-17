@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.BaseBL
 {
-    internal class BaseBL<T> : IBaseBL<T>
+    public class BaseBL<T> : IBaseBL<T>
     {
         private IBaseDL<T> _baseDL;
         
