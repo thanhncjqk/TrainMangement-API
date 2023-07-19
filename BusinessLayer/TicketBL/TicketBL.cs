@@ -22,12 +22,38 @@ namespace BusinessLayer.TicketBL
 
         protected override void Validate(Method method, Ticket record)
         {
-            if (record.TicketCode > 1 && record.TicketCode <= 11)
+            if (record.TicketCode > 0 )
             {
                 Errors.Add("Missing TicketCode");
             }
-            
-            
+            if (record.TicketBuyer >0)
+            {
+                Errors.Add("Missing TicketBuyer");
+            }
+            if (record.PassengerInformation > 0 )
+            {
+                Errors.Add("Missing PassengerInformation");
+            }
+            if (record.TotalTicketPrice > 0)
+            {
+                Errors.Add("Missing TotalTicketPrice");
+            }
+            if (record.TrainTripID !=null )
+            {
+                Errors.Add("Missing TrainTripID");
+            }
+            if (record.SeatID != null )
+            {
+                Errors.Add("Missing SeatID");
+            }
+            if (record.DepartureStation > 0)
+            {
+                Errors.Add("Missing DepartureStation");
+            }
+            if (record.ArrivalStation > 0)
+            {
+                Errors.Add("Missing ArrivalStation");
+            }
         }
     }
 }

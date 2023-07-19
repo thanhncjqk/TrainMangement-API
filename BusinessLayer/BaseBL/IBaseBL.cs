@@ -11,13 +11,13 @@ namespace BusinessLayer.BaseBL
     {
         public PagingData<T> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1);
 
-        public T GetRecordById(Guid id);
+        public T GetRecordById(int id);
 
-        public int DeleteOneRecord(Guid id);
+        public int DeleteOneRecord(int id);
 
         public Guid InsertOneRecord(T record);
 
-        public Guid UpdateOneRecord(Guid ID, T record);
+        public Guid UpdateOneRecord(int ID, T record);
 
         public int DeleteMutirecord(List<Guid> ids);
     }

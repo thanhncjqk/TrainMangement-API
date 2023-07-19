@@ -40,7 +40,7 @@ namespace TrainManagement.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteOneRecord([FromRoute] Guid id)
+        public IActionResult DeleteOneRecord([FromRoute] int id)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace TrainManagement.Controllers
         }
 
         [HttpPut("{ID}")]
-        public virtual IActionResult UpdateOneRecord([FromRoute] Guid ID, [FromBody] T record)
+        public virtual IActionResult UpdateOneRecord([FromRoute] int ID, [FromBody] T record)
         {
             try
             {
