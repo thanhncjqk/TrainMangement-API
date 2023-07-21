@@ -15,11 +15,11 @@ namespace BusinessLayer.BaseBL
 
         public int DeleteOneRecord(int id);
 
-        public Guid InsertOneRecord(T record);
+        public int InsertOneRecord(T record);
 
-        public Guid UpdateOneRecord(int ID, T record);
+        public int UpdateOneRecord(int ID, T record);
 
-        public int DeleteMutirecord(List<Guid> ids);
+        public int DeleteMutirecord(List<int> ids);
     }
 }
     

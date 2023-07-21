@@ -25,7 +25,7 @@ namespace BusinessLayer.Passenger_DetailBL
         {
             if (String.IsNullOrEmpty(record.Name))
             {
-                Errors.Add("Missing name");
+                Errors.Add("Missing Name");
             }
 
             if (record.Age <= 0 && record.Age > 120)
@@ -38,7 +38,7 @@ namespace BusinessLayer.Passenger_DetailBL
                 Errors.Add("Incorrect gender input");
             }
 
-            if (record.Number >= 1)
+            if (record.Number > 0)
             {
                 Errors.Add("Missing number");
             }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.BaseBL;
+using BusinessLayer.Exceptions;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.TrainCarDL;
@@ -22,25 +23,34 @@ namespace BusinessLayer.TrainTripBL
         }
         protected override void Validate(Method method, Train_Trip record)
         {
-            if (record.TrainTripCode > 0)
+            if (record.TrainTripCode != null)
             {
                 Errors.Add("Missing TrainTripCode");
             }
+
             if (record.TrainID != null)
             {
                 Errors.Add("Missing TrainID");
             }
+
             if (record.ScheduleID != null)
             {
                 Errors.Add("Missing ScheduleID");
             }
+
             if (record.DepartureTime > DateTime.Now)
             {
                 Errors.Add("Missing DepartureTime");
             }
+
             if (record.ArrivalTime > DateTime.Now)
             {
                 Errors.Add("Missing ArrivalTime");
+            }
+
+            if (Errors.Count > 0)
+            {
+                throw new ValidateException(Errors);
             }
         }
     }

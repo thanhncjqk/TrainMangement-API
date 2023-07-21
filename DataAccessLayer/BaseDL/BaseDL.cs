@@ -12,7 +12,7 @@ namespace DataAccessLayer.BaseDL
 {
     public class BaseDL<T> : IBaseDL<T>
     {
-        public int DeleteMutiRecords(List<Guid> ids)
+        public int DeleteMutiRecords(List<int> ids)
         {
             string className = typeof(T).Name;
             string stored = $"Proc_{className}_DeleteMultiple";
@@ -31,7 +31,7 @@ namespace DataAccessLayer.BaseDL
             }
         }
 
-        public int DeleteOneRecord(Guid id)
+        public int DeleteOneRecord(int id)
         {
             string className = typeof(T).Name;
             string stored = $"Proc_{className}_DeleteOne";
@@ -73,7 +73,7 @@ namespace DataAccessLayer.BaseDL
 
         }
 
-        public virtual T GetRecordById(Guid id)
+        public virtual T GetRecordById(int id)
         {
             string className = typeof(T).Name;
             string stored = $"Proc_{className}_GetByID";
@@ -90,7 +90,7 @@ namespace DataAccessLayer.BaseDL
             }
         }
 
-        public Guid InsertOneRecord(T record)
+        public int InsertOneRecord(T record)
         {
             string className = typeof(T).Name;
             string storedProc = $"Proc_{className}_InsertOne";
@@ -101,7 +101,7 @@ namespace DataAccessLayer.BaseDL
             {
                 int affectedRow = mySqlConnection.Execute(storedProc, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
-                var result = Guid.Empty;
+                var result = 0;
                 if (affectedRow > 0)
                 {
                     var primaryKeyProp = typeof(T).GetProperties().FirstOrDefault(prop => prop.GetCustomAttributes(typeof(KeyAttribute), true).Count() > 0);
@@ -109,7 +109,7 @@ namespace DataAccessLayer.BaseDL
 
                     if (newID != null)
                     {
-                        result = (Guid)newID;
+                        result = (int)newID;
                     }
                 }
                 return result;
@@ -131,7 +131,7 @@ namespace DataAccessLayer.BaseDL
             return parameters;
         }
 
-        public Guid UpdateOneRecord(Guid id, T record)
+        public int UpdateOneRecord(int id, T record)
         {
             // Chuẩn bị stored Proc
             string className = typeof(T).Name;
@@ -155,10 +155,10 @@ namespace DataAccessLayer.BaseDL
             {
                 int affectedRow = mySqlConnection.Execute(storedProc, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
-                var result = Guid.Empty;
+                var result = 0;
                 if (affectedRow > 0)
                 {
-                    result = (Guid)id;
+                    result = (int)id;
                 }
                 return result;
             }

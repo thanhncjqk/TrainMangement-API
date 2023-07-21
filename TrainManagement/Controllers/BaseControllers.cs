@@ -69,7 +69,7 @@ namespace TrainManagement.Controllers
             {
                 var recordID = _baseBL.InsertOneRecord(record);
 
-                if (recordID != Guid.Empty)
+                if (recordID != 0)
                 {
                     return StatusCode(200, recordID);
                 }
@@ -101,7 +101,7 @@ namespace TrainManagement.Controllers
             {
                 var recodID = _baseBL.UpdateOneRecord(ID, record);
 
-                if (recodID != Guid.Empty)
+                if (recodID != 0)
                 {
                     return StatusCode(200, recodID);
                 }
@@ -126,7 +126,7 @@ namespace TrainManagement.Controllers
             }
         }
         [HttpPost("multi_delete")]
-        public virtual IActionResult DeleteMultiRecord([FromBody] List<Guid> ids)
+        public virtual IActionResult DeleteMultiRecord([FromBody] List<int> ids)
         {
             try
             {

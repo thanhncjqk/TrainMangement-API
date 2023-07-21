@@ -26,7 +26,7 @@ namespace BusinessLayer
         {
             if (String.IsNullOrEmpty(record.ScheduleName))
             {
-                Errors.Add("Missing schedule name");
+                Errors.Add("Missing ScheduleName");
             }
 
             if (Errors.Count > 0)

@@ -20,12 +20,12 @@ namespace BusinessLayer.BaseBL
         {
             _baseDL = baseDL;
         }
-        public int DeleteMutirecord(List<Guid> ids)
+        public int DeleteMutirecord(List<int> ids)
         {
             return _baseDL.DeleteMutiRecords(ids);
         }
 
-        public int DeleteOneRecord(Guid id)
+        public int DeleteOneRecord(int id)
         {
             return _baseDL.DeleteOneRecord(id);
         }
@@ -36,18 +36,18 @@ namespace BusinessLayer.BaseBL
             return _baseDL.GetFilterRecords(search, "ModifiedDate DESC", offSet, pageSize);
         }
 
-        public T GetRecordById(Guid id)
+        public T GetRecordById(int id)
         {
             return _baseDL.GetRecordById(id);
         }
 
-        public Guid InsertOneRecord(T record)
+        public int InsertOneRecord(T record)
         {
             Validate(Method.Add, record);
             return _baseDL.InsertOneRecord(record);
         }
 
-        public Guid UpdateOneRecord(Guid ID, T record)
+        public int UpdateOneRecord(int ID, T record)
         {
             string className = typeof(T).Name;
             var primaryKeyProp = typeof(T).GetProperties().FirstOrDefault(prop => prop.GetCustomAttributes(typeof(KeyAttribute), true).Count() > 0);

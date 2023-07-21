@@ -11,15 +11,15 @@ namespace DataAccessLayer.BaseDL
     {
         public PagingData<T> GetFilterRecords(string? search, string? sort, int offSet = 0, int limit = 10);
 
-        public T GetRecordById(Guid id);
+        public T GetRecordById(int id);
 
-        public int DeleteOneRecord(Guid id);
+        public int DeleteOneRecord(int id);
 
-        public Guid InsertOneRecord(T record);
+        public int InsertOneRecord(T record);
 
-        public Guid UpdateOneRecord(Guid id, T record);
+        public int UpdateOneRecord(int id, T record);
 
-        public int DeleteMutiRecords(List<Guid> ids);
+        public int DeleteMutiRecords(List<int> ids);
 
     }
 }

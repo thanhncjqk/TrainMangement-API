@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.BaseBL;
+using BusinessLayer.Exceptions;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.TrainCarDL;
@@ -25,17 +26,25 @@ namespace BusinessLayer.TrainCarBL
             {
                 Errors.Add("Missing TrainNumber");
             }
+
             if (record.TrainID != null)
             {
                 Errors.Add("Missing TrainID");
             }
+
             if (record.TypeID != null)
             {
                 Errors.Add("Missing TypeID");
             }
+
             if (record.StatusID != null)
             {
                 Errors.Add("Missing StatusID");
+            }
+
+            if (Errors.Count > 0)
+            {
+                throw new ValidateException(Errors);
             }
         }
     }

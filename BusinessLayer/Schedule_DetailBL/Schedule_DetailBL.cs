@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.BaseBL;
+using BusinessLayer.Exceptions;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.Schedule_DetailDL;
@@ -20,9 +21,32 @@ namespace BusinessLayer.Schedule_DetailBL
             _scheduleDetailDL = scheduleDetailDL;
         }
 
-        //protected override void Validate(Method method, Schedule_Detail record)
-        //{
-        //    if (record)
-        //}
+        protected override void Validate(Method method, Schedule_Detail record)
+        {
+            if (record.ScheduleID != null)
+            {
+                Errors.Add("Missing ScheduleId");
+            }
+
+            if (record.StationID != null)
+            {
+                Errors.Add("Missing StationId");
+            }
+
+            if (record.PriceToTheNextStation > 0)
+            {
+                Errors.Add("Missing PriceToTheNextStation");
+            }
+
+            if (record.Arrange > 0)
+            {
+                Errors.Add("Missing Arrange");
+            }
+
+            if (Errors.Count > 0)
+            {
+                throw new ValidateException(Errors);
+            }
+        }
     }
 }
