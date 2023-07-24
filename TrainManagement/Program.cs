@@ -30,7 +30,7 @@ builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseBL<>), typeof(BaseBL<>));
 
 builder.Services.AddScoped<IPassenger_DetailBL, Passenger_DetailBL>();
-builder.Services.AddScoped<IPassenger_DetailDL, IPassenger_DetailDL>();
+builder.Services.AddScoped<IPassenger_DetailDL, Passenger_DetailDL>();
 
 builder.Services.AddScoped<ISchedule_DetailBL, Schedule_DetailBL>();
 builder.Services.AddScoped<ISchedule_DetailDL, Schedule_DetailDL>();
