@@ -32,6 +32,15 @@ namespace TrainManagement.Controllers
                     return StatusCode(500, "loi");
                 }
             }
+            catch (ValidateException ex)
+            {
+                var res = new
+                {
+                    devMsg = ex.Message,
+                    userMsg = ex.Data
+                };
+                return StatusCode(400, res);
+            }
             catch (Exception ex)
             {
 
@@ -55,6 +64,7 @@ namespace TrainManagement.Controllers
                     return StatusCode(500, "e001");
                 }
             }
+           
             catch (Exception ex)
             {
 

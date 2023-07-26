@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.BaseBL;
 using BusinessLayer.Exceptions;
+using Common.DTO;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.SeatDL;
@@ -46,6 +47,17 @@ namespace BusinessLayer.SeatBL
             {
                 throw new ValidateException(Errors);
             }
+        }
+        public override PagingData<Seat> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        {
+            if (string.IsNullOrEmpty(search))
+            {
+                Errors.Add("Missing Train Car ID");
+                throw new ValidateException(Errors);
+            }
+            string where  = $"TrainCarId like '{search}'";
+            int offSet = (pageNumber - 1) * pageSize;
+            return _seatDL.GetFilterRecords(where , "ModifiedDate DESC", offSet, pageSize);
         }
     }
 }

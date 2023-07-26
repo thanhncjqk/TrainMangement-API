@@ -10,6 +10,7 @@ using BusinessLayer.TrainBL;
 using BusinessLayer.TrainCarBL;
 using BusinessLayer.TrainTripBL;
 using BusinessLayer.TypeManagementBL;
+using DataAccessLayer;
 using DataAccessLayer.BaseDL;
 using DataAccessLayer.Passenger_DetailDL;
 using DataAccessLayer.Schedule_DetailDL;
@@ -69,6 +70,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+DatabaseContext.ConnectionString = builder.Configuration.GetConnectionString("MySqlConnection");
 
 builder.Services.AddCors(option =>
 {
