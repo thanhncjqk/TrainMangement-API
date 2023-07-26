@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.BaseBL;
 using BusinessLayer.Exceptions;
 using BusinessLayer.TicketBL;
+using Common.DTO;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.TrainDL;
@@ -43,6 +44,17 @@ namespace BusinessLayer.TrainBL
             {
                 throw new ValidateException(Errors);
             }
+        }
+        public override PagingData<Train> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        {
+            if (string.IsNullOrEmpty(search))
+            {
+                Errors.Add("Missing Train ID");
+                throw new ValidateException(Errors);
+            }
+            string where = $"TrainId like '{search}'";
+            int offSet = (pageNumber - 1) * pageSize;
+            return _trainDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
     }
 }

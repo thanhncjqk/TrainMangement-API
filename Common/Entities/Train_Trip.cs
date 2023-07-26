@@ -9,7 +9,7 @@ namespace Common.Entities
     public class Train_Trip : Base
     {
         public int TrainTripID { get; set; }
-        public int TrainTripCode { get; set; }
+        public string TrainTripCode { get; set; }
         public int TrainID { get; set; }
         public int ScheduleID { get; set; }
         public DateTime DepartureTime { get; set; }

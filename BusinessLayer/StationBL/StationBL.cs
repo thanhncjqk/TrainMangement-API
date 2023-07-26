@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.BaseBL;
 using BusinessLayer.Exceptions;
+using Common.DTO;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.StationDL;
@@ -31,6 +32,18 @@ namespace BusinessLayer.StationBL
             {
                 throw new ValidateException(Errors);
             }
+        }
+
+        public override PagingData<Station> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        {
+            if (string.IsNullOrEmpty(search))
+            {
+                Errors.Add("Missing Station ID");
+                throw new ValidateException(Errors);
+            }
+            string where = $"StationName like '{search}'";
+            int offSet = (pageNumber - 1) * pageSize;
+            return _stationDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
     }
 }

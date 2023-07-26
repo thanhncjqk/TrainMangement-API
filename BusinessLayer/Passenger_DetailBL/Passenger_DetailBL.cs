@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.BaseBL;
 using BusinessLayer.Exceptions;
+using Common.DTO;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.Passenger_DetailDL;
@@ -46,7 +47,13 @@ namespace BusinessLayer.Passenger_DetailBL
             if (Errors.Count > 0)
             {
                 throw new ValidateException(Errors);
-            }
+            }   
+        }
+        public override PagingData<Passenger_Detail> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        {
+            string where = $"Name like '{search}'";
+            int offSet = (pageNumber - 1) * pageSize;
+            return _passengerDetailDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
     }
 }

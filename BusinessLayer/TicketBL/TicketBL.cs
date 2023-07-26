@@ -1,6 +1,7 @@
 ﻿
 using BusinessLayer.BaseBL;
 using BusinessLayer.Exceptions;
+using Common.DTO;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.TicketDL;
@@ -67,6 +68,13 @@ namespace BusinessLayer.TicketBL
             {
                 throw new ValidateException(Errors);
             }
+        }
+
+        public override PagingData<Ticket> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        {
+            string where = $"PassengerInformation like '{search}'";
+            int offSet = (pageNumber - 1) * pageSize;
+            return _ticketDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
     }
 }

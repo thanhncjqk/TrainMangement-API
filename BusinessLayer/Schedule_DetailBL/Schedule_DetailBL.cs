@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.BaseBL;
 using BusinessLayer.Exceptions;
+using Common.DTO;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.Schedule_DetailDL;
@@ -47,6 +48,13 @@ namespace BusinessLayer.Schedule_DetailBL
             {
                 throw new ValidateException(Errors);
             }
+        }
+
+        public override PagingData<Schedule_Detail> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        {
+            string where = $"ScheduleID like '{search}'";
+            int offSet = (pageNumber - 1) * pageSize;
+            return _scheduleDetailDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
     }
 }

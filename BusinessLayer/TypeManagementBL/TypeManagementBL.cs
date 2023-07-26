@@ -1,4 +1,6 @@
 ﻿using BusinessLayer.BaseBL;
+using BusinessLayer.Exceptions;
+using Common.DTO;
 using Common.Entities;
 using Common.Enum;
 using DataAccessLayer.TypeManagementDL;
@@ -21,7 +23,41 @@ namespace BusinessLayer.TypeManagementBL
         }
         protected override void Validate(Method method, Type_Management record)
         {
-            
+            if (String.IsNullOrEmpty(record.TypeName))
+            {
+                Errors.Add("Missing TypeName");
+            }
+
+            if (String.IsNullOrEmpty(record.Value))
+            {
+                Errors.Add("Missing Value");
+            }
+
+            if (String.IsNullOrEmpty(record.CSSClass))
+            {
+                Errors.Add("Missing CSSClass");
+            }
+
+            if (String.IsNullOrEmpty(record.Sorting))
+            {
+                Errors.Add("Missing Sorting");
+            }
+
+            if (record.StateID != null)
+            {
+                Errors.Add("Missing StateID");
+            }
+
+            if (Errors.Count > 0)
+            {
+                throw new ValidateException(Errors);
+            }
+        }
+        public override PagingData<Type_Management> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        {
+            string where = $"TypeID like '{search}'";
+            int offSet = (pageNumber - 1) * pageSize;
+            return _typeManagementDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
     }
 }
