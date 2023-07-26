@@ -10,6 +10,7 @@ using BusinessLayer.TrainBL;
 using BusinessLayer.TrainCarBL;
 using BusinessLayer.TrainTripBL;
 using BusinessLayer.TypeManagementBL;
+using DataAccessLayer;
 using DataAccessLayer.BaseDL;
 using DataAccessLayer.Passenger_DetailDL;
 using DataAccessLayer.Schedule_DetailDL;
@@ -70,6 +71,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+DatabaseContext.ConnectionString = builder.Configuration.GetConnectionString("MySqlConnection");
+
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy(name: MyAllowSpecificOrigins, policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -80,6 +91,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 
