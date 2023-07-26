@@ -10,7 +10,6 @@ namespace Common.Entities
     {
         public int TicketID { get; set; }
         public string TicketCode { get; set; }
-        public int TicketBuyer { get; set; }
         public int PassengerInformation { get; set; }
         public int TotalTicketPrice { get; set; }
         public int TrainTripID { get; set; }

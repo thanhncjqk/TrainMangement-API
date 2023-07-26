@@ -29,11 +29,6 @@ namespace BusinessLayer.TicketBL
                 Errors.Add("Missing TicketCode");
             }
 
-            if (record.TicketBuyer >0)
-            {
-                Errors.Add("Missing TicketBuyer");
-            }
-
             if (record.PassengerInformation > 0 )
             {
                 Errors.Add("Missing PassengerInformation");
@@ -72,7 +67,7 @@ namespace BusinessLayer.TicketBL
 
         public override PagingData<Ticket> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
-            string where = $"PassengerInformation like '{search}'";
+            string where = $"TicketCode like '{search}' && Ticket.PassengerInformation = Passenger_Detail.Name like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _ticketDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
