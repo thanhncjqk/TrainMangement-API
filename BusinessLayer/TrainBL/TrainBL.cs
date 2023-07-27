@@ -52,7 +52,7 @@ namespace BusinessLayer.TrainBL
                 Errors.Add("Missing Train ID");
                 throw new ValidateException(Errors);
             }
-            string where = $"TrainId like '{search}'";
+            string where = $"ScheduleID like '{search} OR StationID like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _trainDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

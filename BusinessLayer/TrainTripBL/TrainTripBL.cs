@@ -61,7 +61,7 @@ namespace BusinessLayer.TrainTripBL
                 Errors.Add("Missing Schedule ID");
                 throw new ValidateException(Errors);
             }
-            string where = $"ScheduleID like '{search}'";
+            string where = $"ScheduleID  like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _trainTripDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

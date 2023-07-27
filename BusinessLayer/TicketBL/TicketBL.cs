@@ -67,7 +67,7 @@ namespace BusinessLayer.TicketBL
 
         public override PagingData<Ticket> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
-            string where = $"TicketCode like '{search}' && Ticket.PassengerInformation = Passenger_Detail.Name like '{search}'";
+            string where = $"TicketCode like '{search}' || PassengerInformation  like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _ticketDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

@@ -15,6 +15,27 @@ namespace TrainManagement.Controllers
         {
             _baseBL = baseBL;
         }
+        [HttpGet("{id}")]
+        public virtual IActionResult GetRecordById([FromRoute] int id)
+        {
+            try
+            {
+                var record = _baseBL.GetRecordById(id);
+
+                if (record != null)
+                {
+                    return StatusCode(200, record);
+                }
+                else
+                {
+                    return StatusCode(404);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         [HttpGet]
         public IActionResult GetFilterRecords([FromQuery] string? search, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 1)
