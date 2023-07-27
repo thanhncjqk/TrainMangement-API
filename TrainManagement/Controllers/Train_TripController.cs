@@ -3,6 +3,7 @@ using BusinessLayer;
 using Common.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Common.DTO;
 
 namespace TrainManagement.Controllers
 {
@@ -17,12 +18,12 @@ namespace TrainManagement.Controllers
             _tripBL = tripBL;
         }
 
-        [HttpGet("filter-train")]
-        public IActionResult FilterTrain([FromQuery] DateTime DepartureTime, DateTime ArrivalTime, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 1)
+        [HttpPost("filter-train")]
+        public IActionResult FilterTrain([FromBody] FilterTime filterTime)
         {
             try
             {
-                var records = _tripBL.FilterTrain(DepartureTime, ArrivalTime, pageSize, pageNumber);
+                var records = _tripBL.FilterTrain(filterTime);
 
                 if(records != null)
                 {

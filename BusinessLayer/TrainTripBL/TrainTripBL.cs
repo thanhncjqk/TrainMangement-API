@@ -54,36 +54,12 @@ namespace BusinessLayer
                 throw new ValidateException(Errors);
             }
         }
-        public PagingData<Train_Trip> FilterTrainDateTime (DateTime DepartureTime, DateTime ArrivalTime, int pageSize = 10, int pageNumber = 1)
+    
+        public PagingData<Train_Trip> FilterTrain(FilterTime filterTime)
         {
-            //if (DepartureStation != null)
-            //{
-            //    Errors.Add("Missing Schedule ID");
-            //    throw new ValidateException(Errors);
-            //}
-            //if (ArrivalStation != null)
-            //{
-            //    Errors.Add("Missing Schedule ID");
-            //    throw new ValidateException(Errors);
-            //}
-            //if (DepartureTime != null)
-            //{
-            //    Errors.Add("Missing Schedule ID");
-            //    throw new ValidateException(Errors);
-            //}
-            //if (ArrivalTime != null)
-            //{
-            //    Errors.Add("Missing Schedule ID");
-            //    throw new ValidateException(Errors);
-            //}
-            string where = $"DepartureTime like '{DepartureTime}' AND ArrivalTime like '{ArrivalTime}'";
-            int offSet = (pageNumber - 1) * pageSize;
-            return _trainTripDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
-        }
-
-        public PagingData<Train_Trip> FilterTrain(DateTime DepartureTime, DateTime ArrivalTime, int pageSize = 10, int pageNumber = 1)
-        {
-            throw new NotImplementedException();
+            string where = $"DepartureTime = '{filterTime.DepartureTime}' AND ArrivalTime = '{filterTime.ArrivalTime}'";
+            int offSet = (filterTime.Page - 1) * filterTime.PageSize;
+            return _trainTripDL.GetFilterRecords(where, "tt.ModifiedDate DESC", offSet, filterTime.PageSize);
         }
     }
 }
