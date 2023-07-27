@@ -11,6 +11,6 @@ namespace BusinessLayer
 {
     public  interface ITrainTripBL : IBaseBL<Train_Trip>
     {
-        public PagingData<Train_Trip> FilterTrain(DateTime DepartureTime, DateTime ArrivalTime, int DepartureStation, int ArrivalStation, int pageSize = 10, int pageNumber = 1);
+        public PagingData<Train_Trip> FilterTrain(DateTime DepartureTime, DateTime ArrivalTime, int pageSize = 10, int pageNumber = 1);
     }
 }

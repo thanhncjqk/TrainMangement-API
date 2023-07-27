@@ -18,11 +18,11 @@ namespace TrainManagement.Controllers
         }
 
         [HttpGet("filter-train")]
-        public IActionResult FilterTrain([FromQuery] DateTime DepartureTime, DateTime ArrivalTime, int DepartureStation, int ArrivalStation, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 1)
+        public IActionResult FilterTrain([FromQuery] DateTime DepartureTime, DateTime ArrivalTime, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 1)
         {
             try
             {
-                var records = _tripBL.FilterTrain(DepartureTime, ArrivalTime, DepartureStation, ArrivalStation, pageSize, pageNumber);
+                var records = _tripBL.FilterTrain(DepartureTime, ArrivalTime, pageSize, pageNumber);
 
                 if(records != null)
                 {

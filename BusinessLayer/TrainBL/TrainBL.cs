@@ -57,7 +57,7 @@ namespace BusinessLayer.TrainBL
             string where = "";
             if (!string.IsNullOrEmpty(search))
             {
-                where = $"sc.ScheduleID like '{search} OR s.StationID like {search}'";
+                where = $"sh.ScheduleID like '%{search}%' OR s.StationID like '%{search}%'";
             }
             int offSet = (pageNumber - 1) * pageSize;
             return _trainDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
