@@ -80,7 +80,9 @@ namespace DataAccessLayer.BaseDL
 
             var parameters = new DynamicParameters();
 
-            parameters.Add($"@${className}ID", id);
+            var primaryKeyProp = typeof(T).GetProperties().FirstOrDefault(prop => prop.GetCustomAttributes(typeof(KeyAttribute), true).Count() > 0);
+            parameters.Add($"@${primaryKeyProp?.Name}", id);
+
 
             using (var mySqlConnection = new MySqlConnection(DatabaseContext.ConnectionString))
             {
