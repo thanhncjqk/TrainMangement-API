@@ -36,12 +36,12 @@ namespace BusinessLayer.StationBL
 
         public override PagingData<Station> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
+            string where = "";
             if (string.IsNullOrEmpty(search))
             {
-                Errors.Add("Missing Station ID");
-                throw new ValidateException(Errors);
+                where = $"StationName like '{search}'";
+
             }
-            string where = $"StationName like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _stationDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

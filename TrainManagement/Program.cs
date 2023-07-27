@@ -8,7 +8,6 @@ using BusinessLayer.StationBL;
 using BusinessLayer.TicketBL;
 using BusinessLayer.TrainBL;
 using BusinessLayer.TrainCarBL;
-using BusinessLayer.TrainTripBL;
 using BusinessLayer.TypeManagementBL;
 using DataAccessLayer;
 using DataAccessLayer.BaseDL;
