@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.TrainTripBL
+namespace BusinessLayer
 {
     public class TrainTripBL : BaseBL<Train_Trip>, ITrainTripBL
     {
@@ -34,6 +34,16 @@ namespace BusinessLayer.TrainTripBL
                 Errors.Add("Missing TrainID");
             }
 
+            if (record.DepartureStation != null)
+            {
+                Errors.Add("Missing DepartureStation");
+            }
+
+            if (record.ArrivalStation != null)
+            {
+                Errors.Add("Missing ArrivalStation");
+            }
+
             if (record.ScheduleID != null)
             {
                 Errors.Add("Missing ScheduleID");
@@ -54,16 +64,36 @@ namespace BusinessLayer.TrainTripBL
                 throw new ValidateException(Errors);
             }
         }
-        public override PagingData<Train_Trip> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        public PagingData<Train_Trip> FilterTrainDateTime (DateTime DepartureTime, DateTime ArrivalTime, int DepartureStation, int ArrivalStation, int pageSize = 10, int pageNumber = 1)
         {
-            if (string.IsNullOrEmpty(search))
+            if (DepartureStation != null)
             {
                 Errors.Add("Missing Schedule ID");
                 throw new ValidateException(Errors);
             }
-            string where = $"ScheduleID like '{search}'";
+            if (ArrivalStation != null)
+            {
+                Errors.Add("Missing Schedule ID");
+                throw new ValidateException(Errors);
+            }
+            if (DepartureTime != null)
+            {
+                Errors.Add("Missing Schedule ID");
+                throw new ValidateException(Errors);
+            }
+            if (ArrivalTime != null)
+            {
+                Errors.Add("Missing Schedule ID");
+                throw new ValidateException(Errors);
+            }
+            string where = $"DepartureStation like '{DepartureStation}' AND ArrivalStation like '{ArrivalStation}' AND DepartureTime like '{DepartureTime}' AND ArrivalTime like '{ArrivalTime}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _trainTripDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
+        }
+
+        public PagingData<Train_Trip> FilterTrain(DateTime DepartureTime, DateTime ArrivalTime, int DepartureStation, int ArrivalStation, int pageSize = 10, int pageNumber = 1)
+        {
+            throw new NotImplementedException();
         }
     }
 }

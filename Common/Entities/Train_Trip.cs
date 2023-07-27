@@ -11,6 +11,8 @@ namespace Common.Entities
         public int TrainTripID { get; set; }
         public string TrainTripCode { get; set; }
         public int TrainID { get; set; }
+        public int DepartureStation { get; set; }
+        public int ArrivalStation { get; set; }
         public int ScheduleID { get; set; }
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }
