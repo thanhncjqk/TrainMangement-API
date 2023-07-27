@@ -37,7 +37,7 @@ namespace BusinessLayer.StationBL
         public override PagingData<Station> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
             string where = "";
-            if (string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(search))
             {
                 where = $"StationName like '{search}'";
 

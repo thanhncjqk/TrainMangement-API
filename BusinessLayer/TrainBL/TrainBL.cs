@@ -47,12 +47,18 @@ namespace BusinessLayer.TrainBL
         }
         public override PagingData<Train> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
-            if (string.IsNullOrEmpty(search))
+            //if (string.IsNullOrEmpty(search))
+            //{
+            //    Errors.Add("Missing Train ID");
+            //    throw new ValidateException(Errors);
+            //}
+            //string where = $"sc.ScheduleID like '{search} OR s.StationID like {search}'";
+
+            string where = "";
+            if (!string.IsNullOrEmpty(search))
             {
-                Errors.Add("Missing Train ID");
-                throw new ValidateException(Errors);
+                where = $"sc.ScheduleID like '{search} OR s.StationID like {search}'";
             }
-            string where = $"ScheduleID like '{search} OR StationID like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _trainDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }
