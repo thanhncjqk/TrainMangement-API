@@ -17,10 +17,7 @@ namespace DataAccessLayer.BaseDL
 
         public int InsertOneRecord(T record);
 
-//<<<<<<< HEAD
         public int UpdateOneRecord(int id, T record);
-//>>>>>>> 586436f95fa7d2beb13283242258d403c4dd3ff6
-//>>>>>>> 6536376f0665a77fe1eba0611e4181d238eee02c
 
         public int DeleteMutiRecords(List<int> ids);
 

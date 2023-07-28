@@ -39,12 +39,12 @@ namespace BusinessLayer.TicketBL
                 Errors.Add("Missing TotalTicketPrice");
             }
 
-            if (record.TrainTripID !=null )
+            if (record.TrainTripId !=null )
             {
                 Errors.Add("Missing TrainTripID");
             }
 
-            if (record.SeatID != null )
+            if (record.SeatId != null )
             {
                 Errors.Add("Missing SeatID");
             }

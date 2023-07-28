@@ -43,9 +43,9 @@ namespace BusinessLayer.TypeManagementBL
                 Errors.Add("Missing Sorting");
             }
 
-            if (record.StateID != null)
+            if (record.StateId != null)
             {
-                Errors.Add("Missing StateID");
+                Errors.Add("Missing StateId");
             }
 
             if (Errors.Count > 0)
@@ -55,7 +55,7 @@ namespace BusinessLayer.TypeManagementBL
         }
         public override PagingData<Type_Management> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
-            string where = $"TypeID like '{search}'";
+            string where = $"TypeId like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _typeManagementDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

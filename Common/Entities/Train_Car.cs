@@ -12,8 +12,8 @@ namespace Common.Entities
         [Key]
         public int TrainCarId { get; set; }
         public int TrainCarNumber { get; set; }
-        public int TrainID { get; set; }
-        public int TypeID { get; set; }
-        public int StatusID { get; set; }
+        public int TrainId { get; set; }
+        public int TypeId { get; set; }
+        public int StatusId { get; set; }
     }
 }

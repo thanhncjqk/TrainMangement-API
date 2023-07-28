@@ -49,7 +49,7 @@ namespace BusinessLayer.Passenger_DetailBL
                 Errors.Add("Missing Password");
             }
 
-            if (String.IsNullOrEmpty(record.Number))
+            if (record.Number != null)
             {
                 Errors.Add("Missing number");
             }

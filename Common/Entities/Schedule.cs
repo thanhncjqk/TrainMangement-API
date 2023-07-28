@@ -10,7 +10,7 @@ namespace Common.Entities
     public class Schedule : Base
     {
         [Key]
-        public int ScheduleID { get; set; }
+        public int ScheduleId { get; set; }
         public string ScheduleName { get; set; }
 
     }

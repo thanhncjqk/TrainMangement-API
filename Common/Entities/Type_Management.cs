@@ -10,11 +10,11 @@ namespace Common.Entities
     public class Type_Management 
     {
         [Key]
-        public int TypeID { get; set; }
+        public int TypeId { get; set; }
         public string TypeName { get; set; }
         public string Value { get; set; }
         public string CSSClass { get; set; }
         public string Sorting { get; set; }
-        public int StateID { get; set; }
+        public int StateId { get; set; }
     }
 }

@@ -28,17 +28,17 @@ namespace BusinessLayer.TrainCarBL
                 Errors.Add("Missing TrainNumber");
             }
 
-            if (record.TrainID != null)
+            if (record.TrainId != null)
             {
                 Errors.Add("Missing TrainID");
             }
 
-            if (record.TypeID != null)
+            if (record.TypeId != null)
             {
                 Errors.Add("Missing TypeID");
             }
 
-            if (record.StatusID != null)
+            if (record.StatusId != null)
             {
                 Errors.Add("Missing StatusID");
             }
@@ -53,7 +53,7 @@ namespace BusinessLayer.TrainCarBL
         {
             if (string.IsNullOrEmpty(search))
             {
-                Errors.Add("Missing Train Car ID");
+                Errors.Add("Missing Train Car Id");
                 throw new ValidateException(Errors);
             }
             string where = $"TrainId like '{search}'";

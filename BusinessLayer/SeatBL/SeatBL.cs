@@ -28,17 +28,17 @@ namespace BusinessLayer.SeatBL
                 Errors.Add("Missing SeatCode");
             }
 
-            if (record.TrainCarID != null)
+            if (record.TrainCarId != null)
             {
                 Errors.Add("Missing ScheduleId");
             }
 
-            if (record.TypeID != null)
+            if (record.TypeId != null)
             {
                 Errors.Add("Missing TypeID");
             }
 
-            if (record.StatusID != null)
+            if (record.StatusId != null)
             {
                 Errors.Add("Missing StatusID");
             }
@@ -52,7 +52,7 @@ namespace BusinessLayer.SeatBL
         {
             if (string.IsNullOrEmpty(search))
             {
-                Errors.Add("Missing Train Car ID");
+                Errors.Add("Missing Train Car Id");
                 throw new ValidateException(Errors);
             }
             string where  = $"TrainCarId like '{search}'";

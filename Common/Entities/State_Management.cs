@@ -10,7 +10,7 @@ namespace Common.Entities
     public class State_Management
     {
         [Key]
-        public int StatusID { get; set; }
+        public int StatusId { get; set; }
         public string TableName { get; set; }
         public string StateName { get; set; }
         public string Value { get; set; }
