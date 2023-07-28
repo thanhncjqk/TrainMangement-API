@@ -10,7 +10,7 @@ namespace Common.Entities
     public class Station : Base
     {
         [Key]
-        public int StationID { get; set; }
+        public int StationId { get; set; }
         public string StationName { get; set; }
     }
 }

@@ -30,12 +30,12 @@ namespace BusinessLayer.TrainBL
                 Errors.Add("Missing TrainNumber");
             }
 
-            if (record.TypeID != null)
+            if (record.TypeId != null)
             {
                 Errors.Add("Missing TypeID");
             }
 
-            if (record.StatusID != null)
+            if (record.StatusId != null)
             {
                 Errors.Add("Missing StatusID");
             }
@@ -57,7 +57,7 @@ namespace BusinessLayer.TrainBL
             string where = "";
             if (!string.IsNullOrEmpty(search))
             {
-                where = $"sh.ScheduleID like '%{search}%' OR s.StationID like '%{search}%'";
+                where = $"sh.ScheduleId like '%{search}%' OR s.StationId like '%{search}%'";
             }
             int offSet = (pageNumber - 1) * pageSize;
             return _trainDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);

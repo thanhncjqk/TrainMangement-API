@@ -24,12 +24,12 @@ namespace BusinessLayer.Schedule_DetailBL
 
         protected override void Validate(Method method, Schedule_Detail record)
         {
-            if (record.ScheduleID != null)
+            if (record.ScheduleId != null)
             {
                 Errors.Add("Missing ScheduleId");
             }
 
-            if (record.StationID != null)
+            if (record.StationId != null)
             {
                 Errors.Add("Missing StationId");
             }
@@ -52,7 +52,7 @@ namespace BusinessLayer.Schedule_DetailBL
 
         public override PagingData<Schedule_Detail> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
-            string where = $"ScheduleID like '{search}'";
+            string where = $"ScheduleId like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _scheduleDetailDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

@@ -10,10 +10,10 @@ namespace Common.Entities
     public class Seat : Base
     {
         [Key]
-        public int SeatID { get; set; }
+        public int SeatId { get; set; }
         public string SeatCode { get; set; }
-        public int TrainCarID { get; set; }
-        public int TypeID { get; set; }
-        public int StatusID { get; set; }
+        public int TrainCarId { get; set; }
+        public int TypeId { get; set; }
+        public int StatusId { get; set; }
     }
 }
