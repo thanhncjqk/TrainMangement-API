@@ -39,6 +39,16 @@ namespace BusinessLayer.Passenger_DetailBL
                 Errors.Add("Missing gender");
             }
 
+            if (String.IsNullOrEmpty(record.Email))
+            {
+                Errors.Add("Missing Email");
+            }
+
+            if (String.IsNullOrEmpty(record.Password))
+            {
+                Errors.Add("Missing Password");
+            }
+
             if (String.IsNullOrEmpty(record.Number))
             {
                 Errors.Add("Missing number");
