@@ -15,5 +15,7 @@ namespace Common.Entities
         public int Age { get; set; }
         public int Gender { get; set; }
         public int Number { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

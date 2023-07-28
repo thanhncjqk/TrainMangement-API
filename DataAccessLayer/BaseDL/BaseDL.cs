@@ -103,18 +103,8 @@ namespace DataAccessLayer.BaseDL
             {
                 int affectedRow = mySqlConnection.Execute(storedProc, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
-                var result = 0;
-                if (affectedRow > 0)
-                {
-                    var primaryKeyProp = typeof(T).GetProperties().FirstOrDefault(prop => prop.GetCustomAttributes(typeof(KeyAttribute), true).Count() > 0);
-                    var newID = primaryKeyProp?.GetValue(record);
-
-                    if (newID != null)
-                    {
-                        result = (int)newID;
-                    }
-                }
-                return result;
+              
+                return affectedRow;
             }
         }
 

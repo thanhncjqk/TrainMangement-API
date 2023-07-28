@@ -98,11 +98,11 @@ namespace TrainManagement.Controllers
         {
             try
             {
-                var recordID = _baseBL.InsertOneRecord(record);
+                int affectedRow = _baseBL.InsertOneRecord(record);
 
-                if (recordID != 0)
+                if (affectedRow != 0)
                 {
-                    return StatusCode(200, recordID);
+                    return StatusCode(201, affectedRow);
                 }
                 else
                 {
