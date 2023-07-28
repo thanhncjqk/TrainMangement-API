@@ -29,17 +29,17 @@ namespace BusinessLayer.Passenger_DetailBL
                 Errors.Add("Missing Name");
             }
 
-            if (record.Age <= 0 && record.Age > 120)
+            if (record.Age != null)
             {
-                Errors.Add("Incorrect age input");
+                Errors.Add("Missing Age");
             }
 
-            if (record.Gender <= 1 && record.Age >= 3)
+            if (record.Gender != null)
             {
-                Errors.Add("Incorrect gender input");
+                Errors.Add("Missing gender");
             }
 
-            if (record.Number > 0)
+            if (String.IsNullOrEmpty(record.Number))
             {
                 Errors.Add("Missing number");
             }
