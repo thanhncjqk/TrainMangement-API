@@ -72,6 +72,16 @@ namespace BusinessLayer.BaseBL
             }
             return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         }
+
+        public static string formatDatetime(DateTime date)
+        {
+            string day = date.Day.ToString();
+            string month = date.Month.ToString();
+            string year = date.Year.ToString();
+
+            return $"{year}-{month}-{day}";
+        }
+
     }
 }
     

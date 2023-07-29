@@ -57,7 +57,7 @@ namespace BusinessLayer
     
         public PagingData<Train_Trip> FilterTrain(FilterTime filterTime)
         {
-            string where = $"DepartureTime = '{filterTime.DepartureTime}' AND ArrivalTime = '{filterTime.ArrivalTime}'";
+            string where = $"tt.DepartureTime >= '{formatDatetime(filterTime.DepartureTime)}' AND tt.DepartureTime <= '{formatDatetime(filterTime.ArrivalTime)}'";
             int offSet = (filterTime.Page - 1) * filterTime.PageSize;
             return _trainTripDL.GetFilterRecords(where, "tt.ModifiedDate DESC", offSet, filterTime.PageSize);
         }
