@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class TrainTripBL : BaseBL<Train_Trip>, ITrainTripBL
+    public class TrainTripBL : BaseBL<TrainTrip>, ITrainTripBL
     {
         List<string> Errors = new List<string>();
         private ITrainTripDL _trainTripDL;
@@ -22,7 +22,7 @@ namespace BusinessLayer
         {
             _trainTripDL = trainTripDL;
         }
-        protected override void Validate(Method method, Train_Trip record)
+        protected override void Validate(Method method, TrainTrip record)
         {
             if (String.IsNullOrEmpty(record.TrainTripCode))
             {
@@ -55,7 +55,7 @@ namespace BusinessLayer
             }
         }
     
-        public PagingData<Train_Trip> FilterTrain(FilterTime filterTime)
+        public PagingData<TrainTrip> FilterTrain(FilterTime filterTime)
         {
             string where = $"DepartureTime = '{filterTime.DepartureTime}' AND ArrivalTime = '{filterTime.ArrivalTime}'";
             int offSet = (filterTime.Page - 1) * filterTime.PageSize;

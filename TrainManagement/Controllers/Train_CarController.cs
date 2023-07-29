@@ -7,7 +7,7 @@ namespace TrainManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Train_CarController : BasesController<Train_Car>
+    public class Train_CarController : BasesController<TrainCar>
     {
         private ITrainCarBL _trainCarBL;
 

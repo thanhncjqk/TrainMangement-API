@@ -7,7 +7,7 @@ namespace TrainManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class State_ManagementController : BasesController<State_Management>
+    public class State_ManagementController : BasesController<Status>
     {
         private IState_ManagementBL _stateManagementBL;
 

@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace Common.Entities
 {
-    public class Train_Car : Base
+    public class Status : Base
     {
         [Key]
-        public int TrainCarId { get; set; }
-        public int TrainCarNumber { get; set; }
-        public int TrainId { get; set; }
-        public int TypeId { get; set; }
         public int StatusId { get; set; }
+        public string TableName { get; set; }
+        public string StateName { get; set; }
+        public string Value { get; set; }
+        public string CSSClass { get; set; }
+        public string Sorting { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.State_ManagementDL
 {
-    public interface IState_ManagementDL : IBaseDL<State_Management>
+    public interface IState_ManagementDL : IBaseDL<Status>
     {
     }
 }

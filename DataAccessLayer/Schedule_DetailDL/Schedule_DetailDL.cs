@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Schedule_DetailDL
 {
-    public class Schedule_DetailDL : BaseDL<Schedule_Detail>, ISchedule_DetailDL
+    public class Schedule_DetailDL : BaseDL<ScheduleDetail>, ISchedule_DetailDL
     {
     }
 }

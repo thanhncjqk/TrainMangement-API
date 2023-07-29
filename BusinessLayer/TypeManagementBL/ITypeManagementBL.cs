@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.TypeManagementBL
 {
-    public interface ITypeManagementBL : IBaseBL<Type_Management>
+    public interface ITypeManagementBL : IBaseBL<Common.Entities.Type>
     {
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.TrainTripDL
 {
-    public class TrainTripDL : BaseDL<Train_Trip>, ITrainTripDL
+    public class TrainTripDL : BaseDL<TrainTrip>, ITrainTripDL
     {
     }
 }

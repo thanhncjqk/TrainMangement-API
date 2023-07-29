@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Passenger_DetailBL
 {
-    public class Passenger_DetailBL : BaseBL<Passenger_Detail>, IPassenger_DetailBL
+    public class Passenger_DetailBL : BaseBL<Passenger>, IPassenger_DetailBL
     {
         List<string> Errors = new List<string>();
         private IPassenger_DetailDL _passengerDetailDL;
@@ -22,7 +22,7 @@ namespace BusinessLayer.Passenger_DetailBL
             _passengerDetailDL = passenger_deatilDL;
         }
 
-        protected override void Validate(Method method, Passenger_Detail record)
+        protected override void Validate(Method method, Passenger record)
         {
             if (String.IsNullOrEmpty(record.Name))
             {
@@ -64,7 +64,7 @@ namespace BusinessLayer.Passenger_DetailBL
                 throw new ValidateException(Errors);
             }   
         }
-        public override PagingData<Passenger_Detail> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        public override PagingData<Passenger> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
             string where = $"PhoneNumber like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;

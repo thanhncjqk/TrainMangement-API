@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.Entities
 {
-    public class Passenger_Detail : Base
+    public class Passenger : Base
     {
         [Key]
         public int PassengerId { get; set; }

@@ -7,7 +7,7 @@ namespace TrainManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Schedule_DetailController : BasesController<Schedule_Detail>
+    public class Schedule_DetailController : BasesController<ScheduleDetail>
     {
         private ISchedule_DetailBL _scheduleDetailBL;
 

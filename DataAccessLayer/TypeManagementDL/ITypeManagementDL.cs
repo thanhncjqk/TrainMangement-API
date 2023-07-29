@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.TypeManagementDL
 {
-    public interface ITypeManagementDL : IBaseDL<Type_Management>
+    public interface ITypeManagementDL : IBaseDL<Common.Entities.Type>
     {
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.State_ManagementBL
 {
-    public interface IState_ManagementBL : IBaseBL<State_Management>
+    public interface IState_ManagementBL : IBaseBL<Status>
     {
     }
 }
