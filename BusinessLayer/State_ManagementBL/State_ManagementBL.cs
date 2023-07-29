@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.State_ManagementBL
 {
-    public class State_ManagementBL : BaseBL<State_Management>, IState_ManagementBL
+    public class State_ManagementBL : BaseBL<Status>, IState_ManagementBL
     {
         List<string> Errors = new List<string>();
         private IState_ManagementDL _stateManagementDL;
@@ -21,7 +21,7 @@ namespace BusinessLayer.State_ManagementBL
         {
             _stateManagementDL = stateManagementDL;
         }
-        protected override void Validate(Method method, State_Management record)
+        protected override void Validate(Method method, Status record)
         {
             if (String.IsNullOrEmpty(record.TableName))
             {
@@ -53,7 +53,7 @@ namespace BusinessLayer.State_ManagementBL
                 throw new ValidateException(Errors);
             }
         }
-        public override PagingData<State_Management> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        public override PagingData<Status> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
             string where = $"StateName like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;

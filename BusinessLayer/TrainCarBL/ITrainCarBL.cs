@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.TrainCarBL
 {
-    public interface ITrainCarBL : IBaseBL<Train_Car>
+    public interface ITrainCarBL : IBaseBL<TrainCar>
     {
     }
 }

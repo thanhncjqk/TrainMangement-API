@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.TrainCarBL
 {
-    public class TrainCarBL : BaseBL<Train_Car>, ITrainCarBL
+    public class TrainCarBL : BaseBL<TrainCar>, ITrainCarBL
     {
         List<string> Errors = new List<string>();
         private ITrainCarDL _trainCarDL;
@@ -21,7 +21,7 @@ namespace BusinessLayer.TrainCarBL
         {
             _trainCarDL = trainCarDL;
         }
-        protected override void Validate(Method method, Train_Car record)
+        protected override void Validate(Method method, TrainCar record)
         {
             if (record.TrainCarNumber == null)
             {
@@ -49,7 +49,7 @@ namespace BusinessLayer.TrainCarBL
             }
         }
 
-        public override PagingData<Train_Car> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        public override PagingData<TrainCar> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
             if (string.IsNullOrEmpty(search))
             {

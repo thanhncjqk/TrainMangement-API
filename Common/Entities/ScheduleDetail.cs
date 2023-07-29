@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.Entities
 {
-    public class Schedule_Detail : Base
+    public class ScheduleDetail : Base
     {
         [Key]
         public int ScheduleDetailId { get; set; }

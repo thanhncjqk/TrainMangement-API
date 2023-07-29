@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Schedule_DetailBL
 {
-    public interface ISchedule_DetailBL : IBaseBL<Schedule_Detail>
+    public interface ISchedule_DetailBL : IBaseBL<ScheduleDetail>
     {
     }
 }

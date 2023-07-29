@@ -7,7 +7,7 @@ namespace TrainManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Type_ManagementController : BasesController<Type_Management>
+    public class Type_ManagementController : BasesController<Common.Entities.Type>
     {
         private ITypeManagementBL _typeManagementBL;
 

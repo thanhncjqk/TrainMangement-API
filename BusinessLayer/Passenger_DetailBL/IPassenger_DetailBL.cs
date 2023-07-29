@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Passenger_DetailBL
 {
-    public interface IPassenger_DetailBL : IBaseBL<Passenger_Detail>
+    public interface IPassenger_DetailBL : IBaseBL<Passenger>
     {
     }
 }

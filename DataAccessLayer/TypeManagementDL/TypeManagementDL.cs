@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.TypeManagementDL
 {
-    public class TypeManagementDL : BaseDL<Type_Management>, ITypeManagementDL
+    public class TypeManagementDL : BaseDL<Common.Entities.Type>, ITypeManagementDL
     {
     }
 }

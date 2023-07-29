@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Passenger_DetailDL
 {
-    public interface IPassenger_DetailDL : IBaseDL<Passenger_Detail>
+    public interface IPassenger_DetailDL : IBaseDL<Passenger>
     {
     }
 }

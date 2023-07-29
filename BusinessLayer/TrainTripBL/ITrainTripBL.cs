@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public  interface ITrainTripBL : IBaseBL<Train_Trip>
+    public  interface ITrainTripBL : IBaseBL<TrainTrip>
     {
-        public PagingData<Train_Trip> FilterTrain(FilterTime filterTime);
+        public PagingData<TrainTrip> FilterTrain(FilterTime filterTime);
     }
 }

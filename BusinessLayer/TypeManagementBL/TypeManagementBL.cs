@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.TypeManagementBL
 {
-    public class TypeManagementBL : BaseBL<Type_Management>, ITypeManagementBL
+    public class TypeManagementBL : BaseBL<Common.Entities.Type>, ITypeManagementBL
     {
         List<string> Errors = new List<string>();
         private ITypeManagementDL _typeManagementDL;
@@ -21,7 +21,7 @@ namespace BusinessLayer.TypeManagementBL
         {
             _typeManagementDL = typeManagementDL;
         }
-        protected override void Validate(Method method, Type_Management record)
+        protected override void Validate(Method method, Common.Entities.Type record)
         {
             if (String.IsNullOrEmpty(record.TypeName))
             {
@@ -53,7 +53,7 @@ namespace BusinessLayer.TypeManagementBL
                 throw new ValidateException(Errors);
             }
         }
-        public override PagingData<Type_Management> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        public override PagingData<Common.Entities.Type> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
             string where = $"TypeName like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;

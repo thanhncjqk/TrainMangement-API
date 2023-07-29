@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Schedule_DetailBL
 {
-    public class Schedule_DetailBL : BaseBL<Schedule_Detail>, ISchedule_DetailBL
+    public class Schedule_DetailBL : BaseBL<ScheduleDetail>, ISchedule_DetailBL
     {
         List<string> Errors = new List<string>();
         private ISchedule_DetailDL _scheduleDetailDL;
@@ -22,7 +22,7 @@ namespace BusinessLayer.Schedule_DetailBL
             _scheduleDetailDL = scheduleDetailDL;
         }
 
-        protected override void Validate(Method method, Schedule_Detail record)
+        protected override void Validate(Method method, ScheduleDetail record)
         {
             if (record.ScheduleId == null)
             {
@@ -50,7 +50,7 @@ namespace BusinessLayer.Schedule_DetailBL
             }
         }
 
-        public override PagingData<Schedule_Detail> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
+        public override PagingData<ScheduleDetail> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
             string where = $"ScheduleId like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.Entities
 {
-    public class Type_Management : Base
+    public class Type : Base
     {
         [Key]
         public int TypeId { get; set; }
