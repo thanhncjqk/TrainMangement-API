@@ -55,7 +55,7 @@ namespace BusinessLayer.State_ManagementBL
         }
         public override PagingData<State_Management> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
-            string where = $"StatusId like '{search}'";
+            string where = $"StateName like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _stateManagementDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

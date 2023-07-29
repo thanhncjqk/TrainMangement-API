@@ -125,16 +125,16 @@ namespace TrainManagement.Controllers
             }
         }
 
-        [HttpPut("{ID}")]
-        public virtual IActionResult UpdateOneRecord([FromRoute] int ID, [FromBody] T record)
+        [HttpPut("{id}")]
+        public virtual IActionResult UpdateOneRecord([FromRoute] int id, [FromBody] T record)
         {
             try
             {
-                var recodID = _baseBL.UpdateOneRecord(ID, record);
+                var recodId = _baseBL.UpdateOneRecord(id, record);
 
-                if (recodID != 0)
+                if (recodId != 0)
                 {
-                    return StatusCode(200, recodID);
+                    return StatusCode(200, recodId);
                 }
                 else
                 {
@@ -156,6 +156,7 @@ namespace TrainManagement.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         [HttpPost("multi_delete")]
         public virtual IActionResult DeleteMultiRecord([FromBody] List<int> ids)
         {

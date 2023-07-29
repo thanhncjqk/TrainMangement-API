@@ -23,22 +23,22 @@ namespace BusinessLayer.SeatBL
         }
         protected override void Validate(Method method, Seat record)
         {
-            if (record.SeatCode != null)
+            if (record.SeatCode == null)
             {
                 Errors.Add("Missing SeatCode");
             }
 
-            if (record.TrainCarId != null)
+            if (record.TrainCarId == null)
             {
                 Errors.Add("Missing ScheduleId");
             }
 
-            if (record.TypeId != null)
+            if (record.TypeId == null)
             {
                 Errors.Add("Missing TypeID");
             }
 
-            if (record.StatusId != null)
+            if (record.StatusId == null)
             {
                 Errors.Add("Missing StatusID");
             }

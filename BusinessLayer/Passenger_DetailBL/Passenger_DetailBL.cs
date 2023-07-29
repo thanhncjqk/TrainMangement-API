@@ -29,14 +29,19 @@ namespace BusinessLayer.Passenger_DetailBL
                 Errors.Add("Missing Name");
             }
 
-            if (record.Age != null)
+            if (record.Age == null)
             {
                 Errors.Add("Missing Age");
             }
 
-            if (record.Gender != null)
+            if (record.Gender == null)
             {
                 Errors.Add("Missing gender");
+            }
+
+            if (String.IsNullOrEmpty(record.PhoneNumber))
+            {
+                Errors.Add("Missing PhoneNumber");
             }
 
             if (String.IsNullOrEmpty(record.Email))
@@ -49,7 +54,7 @@ namespace BusinessLayer.Passenger_DetailBL
                 Errors.Add("Missing Password");
             }
 
-            if (record.Number != null)
+            if (record.Number == null)
             {
                 Errors.Add("Missing number");
             }
@@ -61,7 +66,7 @@ namespace BusinessLayer.Passenger_DetailBL
         }
         public override PagingData<Passenger_Detail> GetFilterRecords(string? search, int pageSize = 10, int pageNumber = 1)
         {
-            string where = $"Name like '{search}'";
+            string where = $"PhoneNumber like '{search}'";
             int offSet = (pageNumber - 1) * pageSize;
             return _passengerDetailDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
         }

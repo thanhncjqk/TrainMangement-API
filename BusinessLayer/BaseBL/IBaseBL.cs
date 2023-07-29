@@ -17,7 +17,7 @@ namespace BusinessLayer.BaseBL
 
         public int InsertOneRecord(T record);
 
-        public int UpdateOneRecord(int ID, T record);
+        public int UpdateOneRecord(int id, T record);
 
         public int DeleteMutirecord(List<int> ids);
     }

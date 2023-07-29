@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.Entities
 {
-    public class State_Management
+    public class State_Management : Base
     {
         [Key]
         public int StatusId { get; set; }

@@ -24,24 +24,24 @@ namespace BusinessLayer.Schedule_DetailBL
 
         protected override void Validate(Method method, Schedule_Detail record)
         {
-            if (record.ScheduleId != null)
+            if (record.ScheduleId == null)
             {
                 Errors.Add("Missing ScheduleId");
             }
 
-            if (record.StationId != null)
+            if (record.CurrentStation == null)
             {
                 Errors.Add("Missing StationId");
             }
 
-            if (record.PriceToTheNextStation > 0)
-            {
-                Errors.Add("Missing PriceToTheNextStation");
-            }
-
-            if (record.Arrange > 0)
+            if (record.NextStation == null)
             {
                 Errors.Add("Missing Arrange");
+            }
+
+            if (record.PriceToTheNextStation == null)
+            {
+                Errors.Add("Missing PriceToTheNextStation");
             }
 
             if (Errors.Count > 0)

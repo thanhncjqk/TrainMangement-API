@@ -47,18 +47,18 @@ namespace BusinessLayer.BaseBL
             return _baseDL.InsertOneRecord(record);
         }
 
-        public int UpdateOneRecord(int ID, T record)
+        public int UpdateOneRecord(int id, T record)
         {
             string className = typeof(T).Name;
             var primaryKeyProp = typeof(T).GetProperties().FirstOrDefault(prop => prop.GetCustomAttributes(typeof(KeyAttribute), true).Count() > 0);
 
             if (primaryKeyProp != null)
             {
-                primaryKeyProp.SetValue(record, ID);
+                primaryKeyProp.SetValue(record, id);
             }
 
             Validate(Method.Edit, record);
-            return _baseDL.UpdateOneRecord(ID, record);
+            return _baseDL.UpdateOneRecord(id, record);
         }
         protected virtual void Validate(Method method, T record)
         {

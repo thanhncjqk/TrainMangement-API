@@ -25,17 +25,17 @@ namespace BusinessLayer.TrainBL
 
         protected override void Validate(Method method, Train record)
         {
-            if (record.TrainNumber > 0)
+            if (record.TrainNumber == null)
             {
                 Errors.Add("Missing TrainNumber");
             }
 
-            if (record.TypeId != null)
+            if (record.TypeId == null)
             {
                 Errors.Add("Missing TypeID");
             }
 
-            if (record.StatusId != null)
+            if (record.StatusId == null)
             {
                 Errors.Add("Missing StatusID");
             }

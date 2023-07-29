@@ -23,22 +23,22 @@ namespace BusinessLayer.TrainCarBL
         }
         protected override void Validate(Method method, Train_Car record)
         {
-            if (record.TrainCarNumber > 0)
+            if (record.TrainCarNumber == null)
             {
                 Errors.Add("Missing TrainNumber");
             }
 
-            if (record.TrainId != null)
+            if (record.TrainId == null)
             {
                 Errors.Add("Missing TrainID");
             }
 
-            if (record.TypeId != null)
+            if (record.TypeId == null)
             {
                 Errors.Add("Missing TypeID");
             }
 
-            if (record.StatusId != null)
+            if (record.StatusId == null)
             {
                 Errors.Add("Missing StatusID");
             }

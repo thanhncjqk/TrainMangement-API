@@ -38,7 +38,7 @@ namespace DataAccessLayer.BaseDL
 
             var parameter = new DynamicParameters();
 
-            parameter.Add($"@${className}ID", id);
+            parameter.Add($"@${className}Id", id);
 
             using (var mySqlConnection = new MySqlConnection(DatabaseContext.ConnectionString))
             {
@@ -129,17 +129,6 @@ namespace DataAccessLayer.BaseDL
             string className = typeof(T).Name;
             string storedProc = $"Proc_{className}_UpdateOne";
 
-            // Chuẩn bị tham số
-            //var parameters = new DynamicParameters();
-
-            //var props = typeof(T).GetProperties();
-
-            //foreach (var prop in props)
-            //{
-            //    var propName = $"@${prop.Name}";
-            //    var propValue = prop.GetValue(record);
-            //    parameters.Add(propName, propValue);
-            //} 
             var parameters = SetDynamicParameters(record);
 
             // Thực hiện lệnh với tham số đầu vào

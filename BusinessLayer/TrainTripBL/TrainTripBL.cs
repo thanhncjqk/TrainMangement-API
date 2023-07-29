@@ -29,12 +29,12 @@ namespace BusinessLayer
                 Errors.Add("Missing TrainTripCode");
             }
 
-            if (record.TrainId != null)
+            if (record.TrainId == null)
             {
                 Errors.Add("Missing TrainID");
             }
 
-            if (record.ScheduleId != null)
+            if (record.ScheduleId == null)
             {
                 Errors.Add("Missing ScheduleID");
             }

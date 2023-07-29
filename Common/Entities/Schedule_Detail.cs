@@ -12,8 +12,8 @@ namespace Common.Entities
         [Key]
         public int ScheduleDetailId { get; set; }
         public int ScheduleId { get; set; }
-        public int StationId { get; set; }
-        public int Arrange { get; set; }
+        public int CurrentStation { get; set; }
+        public int NextStation { get; set; }
         public decimal PriceToTheNextStation { get; set; }
     }
 }
