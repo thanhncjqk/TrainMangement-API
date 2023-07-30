@@ -31,12 +31,12 @@ namespace BusinessLayer.Schedule_DetailBL
 
             if (record.CurrentStation == null)
             {
-                Errors.Add("Missing StationId");
+                Errors.Add("Missing CurrentStation");
             }
 
             if (record.NextStation == null)
             {
-                Errors.Add("Missing Arrange");
+                Errors.Add("Missing NextStation");
             }
 
             if (record.PriceToTheNextStation == null)
