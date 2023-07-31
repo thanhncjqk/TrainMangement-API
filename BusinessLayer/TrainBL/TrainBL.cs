@@ -50,7 +50,7 @@ namespace BusinessLayer.TrainBL
             string where = "";
             if (!string.IsNullOrEmpty(search))
             {
-                where = $"s.ScheduleName like '{search}'";
+                where = $"s.ScheduleName like '{search}' OR sd.CurrentStation like '{search}'";
             }
             int offSet = (pageNumber - 1) * pageSize;
             return _trainDL.GetFilterRecords(where, "ModifiedDate DESC", offSet, pageSize);
