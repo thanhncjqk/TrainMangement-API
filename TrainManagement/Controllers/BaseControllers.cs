@@ -38,7 +38,7 @@ namespace TrainManagement.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetFilterRecords([FromQuery] string? search, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 1)
+        public virtual IActionResult GetFilterRecords([FromQuery] string? search, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 1)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace TrainManagement.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteOneRecord([FromRoute] int id)
+        public virtual IActionResult DeleteOneRecord([FromRoute] int id)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace TrainManagement.Controllers
                     return StatusCode(500, "e001");
                 }
             }
-           
+
             catch (Exception ex)
             {
 
